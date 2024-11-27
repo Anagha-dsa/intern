@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Loyalty Score Prediction</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Loyalty Score Prediction</h1>
+        <form action="/predict" method="post">
+            
+
+            <label for="age">Age:</label>
+            <input type="text" name="age" required><br>
+
+            <label for="items_purchased">Items Purchased:</label>
+            <input type="text" name="items_purchased" required><br>
+
+            <label for="Total Spent">Total Spent:</label>
+            <input type="text" name="Total Spent" required><br>
+            
+            <label for="discount_percentage">Discount (%):</label>
+            <input type="text" name="discount_percentage" required><br>
+
+            <label for="satisfaction_score">Satisfaction Score:</label>
+            <input type="text" name="satisfaction_score" required><br>
+
+            <label for="warranty_extension">Warranty Extension:</label>
+            <input type="text" name="warranty_extension" required><br>
+
+            <label for="gender">Gender:</label>
+            <select name="gender" required><br>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
+
+            <label for="region">Region:</label>
+            <input type="text" name="region" required><br>
+            
+            <label for="product_category">Product Category:</label>
+            <input type="text" name="product_category" required><br>
+
+            <label for="payment_method">Payment Method:</label>
+            <select name="payment_method" required><br>
+                <option value="Credit Card">Credit Card</option>
+                <option value="Debit Card">Debit Card</option>
+                <option value="Cash">Cash</option>
+                <option value="Online Payment">Online Payment</option>
+            </select>
+
+
+            <label for="revenue">Revenue:</label>
+            <input type="text" name="revenue" required><br>
+            
+            <label for="store_rating">Store Rating:</label>
+            <input type="text" name="store_rating" required><br>
+
+            <label for="membership_status">Membership Status:</label>
+            <select name="membership_status" required>
+                <option value="1.0">Member</option>
+                 <option value="0.0">Non-Member</option>
+            </select>
+            <input type="hidden" name="membership_status_value" value="">
+
+            <script>
+            // JavaScript to set the hidden input value based on the selected option
+            const membershipSelect = document.getElementById('membership_status');
+             const membershipValueInput = document.getElementById('membership_status_value');
+
+            membershipSelect.addEventListener('change', function() {
+            membershipValueInput.value = membershipSelect.value;
+            });
+            </script>
+
+
+           
+
+            <label for="preferred_visit_time">Preferred Visit Time:</label>
+            <select name="preferred_visit_time" required><br>
+                <option value="Morning">Morning</option>
+                <option value="Afternoon">Afternoon</option>
+                <option value="Evening">Evening</option>
+            </select>
+
+            
+
+            <button type="submit">Predict</button>
+        </form>
+    </div>
+</body>
+</html>
